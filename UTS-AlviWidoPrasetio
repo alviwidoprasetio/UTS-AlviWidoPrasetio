@@ -1,0 +1,267 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPLVpdSPH+s3O9PZ9cj+luO",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/alviwidoprasetio/UTS-AlviWidoPrasetio/blob/main/UTS-AlviWidoPrasetio\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Soal 1"
+      ],
+      "metadata": {
+        "id": "jxW9IRIuYXeF"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wFruVrYDYVUc",
+        "outputId": "dc185945-7274-47b9-aa4e-58e624020760"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data Fahrenheit : [77.0, 82.4, 86.0, 71.6, 95.0, 104.0, 64.4, 75.2]\n",
+            "3 Data Terakhir : [40, 18, 24]\n"
+          ]
+        }
+      ],
+      "source": [
+        "temperatures = [25, 28, 30, 22, 35, 40, 18, 24]\n",
+        "\n",
+        "# Konversi Celsius ke Fahrenheit\n",
+        "temp_fahrenheit = [(x * 9/5) + 32 for x in temperatures]\n",
+        "\n",
+        "# Ambil 3 data terakhir menggunakan slicing\n",
+        "tiga_terakhir = temperatures[-3:]\n",
+        "\n",
+        "print(\"Data Fahrenheit :\", temp_fahrenheit)\n",
+        "print(\"3 Data Terakhir :\", tiga_terakhir)"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Soal 2"
+      ],
+      "metadata": {
+        "id": "UAjeAtknZOxc"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "inventory = {\n",
+        "    \"laptop\": {\"stok\": 10, \"harga\": 15000000},\n",
+        "    \"mouse\": {\"stok\": 50, \"harga\": 250000},\n",
+        "    \"monitor\": {\"stok\": 20, \"harga\": 3000000}\n",
+        "}\n",
+        "\n",
+        "# Menambahkan produk baru\n",
+        "inventory[\"keyboard\"] = {\"stok\": 30, \"harga\": 500000}\n",
+        "\n",
+        "# Mengubah harga laptop\n",
+        "inventory[\"laptop\"].update({\"harga\": 14500000})\n",
+        "\n",
+        "# Menghitung total nilai aset gudang\n",
+        "total_aset = 0\n",
+        "\n",
+        "for barang in inventory.values():\n",
+        "    total_aset += barang[\"stok\"] * barang[\"harga\"]\n",
+        "\n",
+        "print(\"Data Inventory:\")\n",
+        "print(inventory)\n",
+        "\n",
+        "print(\"\\nTotal Nilai Aset Gudang:\", total_aset)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "eLnvR8HsZSco",
+        "outputId": "0f686c3c-f570-453c-c105-d167f22c4d7a"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Data Inventory:\n",
+            "{'laptop': {'stok': 10, 'harga': 14500000}, 'mouse': {'stok': 50, 'harga': 250000}, 'monitor': {'stok': 20, 'harga': 3000000}, 'keyboard': {'stok': 30, 'harga': 500000}}\n",
+            "\n",
+            "Total Nilai Aset Gudang: 232500000\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Soal 3"
+      ],
+      "metadata": {
+        "id": "0p78TUCQZuDz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import numpy as np\n",
+        "\n",
+        "scores = np.array([\n",
+        "    [80, 85, 90],\n",
+        "    [70, 60, 75],\n",
+        "    [95, 90, 100],\n",
+        "    [40, 50, 45]\n",
+        "])\n",
+        "\n",
+        "# Rata-rata tiap mahasiswa\n",
+        "rata_rata = np.mean(scores, axis=1)\n",
+        "\n",
+        "# Nilai tertinggi\n",
+        "nilai_tertinggi = np.max(scores)\n",
+        "\n",
+        "# Status kelulusan\n",
+        "status = np.where(rata_rata >= 70, \"Lulus\", \"Gagal\")\n",
+        "\n",
+        "print(\"Rata-rata Mahasiswa:\")\n",
+        "print(rata_rata)\n",
+        "\n",
+        "print(\"\\nNilai Tertinggi:\")\n",
+        "print(nilai_tertinggi)\n",
+        "\n",
+        "print(\"\\nStatus Kelulusan:\")\n",
+        "print(status)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "SE0f3afOZw0i",
+        "outputId": "f605351c-3177-440a-ec74-c5e8c606d6c1"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Rata-rata Mahasiswa:\n",
+            "[85.         68.33333333 95.         45.        ]\n",
+            "\n",
+            "Nilai Tertinggi:\n",
+            "100\n",
+            "\n",
+            "Status Kelulusan:\n",
+            "['Lulus' 'Gagal' 'Lulus' 'Gagal']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Soal 4"
+      ],
+      "metadata": {
+        "id": "QiVnMa_NZ-xr"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "\n",
+        "df_data = {\n",
+        "    'Nama': ['Andi', 'Budi', 'Caca', 'Dedi', 'Euis'],\n",
+        "    'Departemen': ['IT', 'HR', 'IT', 'Sales', 'Sales'],\n",
+        "    'Gaji': [8000000, 7000000, 8500000, np.nan, 6000000],\n",
+        "    'Pengalaman_Tahun': [5, 3, 6, 2, 1]\n",
+        "}\n",
+        "\n",
+        "df = pd.DataFrame(df_data)\n",
+        "\n",
+        "# Mengisi nilai NaN dengan median\n",
+        "median_gaji = df['Gaji'].median()\n",
+        "df['Gaji'] = df['Gaji'].fillna(median_gaji)\n",
+        "\n",
+        "# Membuat kolom kategori senioritas\n",
+        "df['Kategori_Senioritas'] = np.where(\n",
+        "    df['Pengalaman_Tahun'] > 4,\n",
+        "    'Senior',\n",
+        "    'Junior'\n",
+        ")\n",
+        "\n",
+        "# Menghitung rata-rata gaji per departemen\n",
+        "rata_gaji = df.groupby('Departemen')['Gaji'].mean()\n",
+        "\n",
+        "print(\"DataFrame:\")\n",
+        "print(df)\n",
+        "\n",
+        "print(\"\\nRata-rata Gaji per Departemen:\")\n",
+        "print(rata_gaji)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TsOn0agIaCJU",
+        "outputId": "1f9b8af1-b87c-4591-ba98-574684e675b8"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DataFrame:\n",
+            "   Nama Departemen       Gaji  Pengalaman_Tahun Kategori_Senioritas\n",
+            "0  Andi         IT  8000000.0                 5              Senior\n",
+            "1  Budi         HR  7000000.0                 3              Junior\n",
+            "2  Caca         IT  8500000.0                 6              Senior\n",
+            "3  Dedi      Sales  7500000.0                 2              Junior\n",
+            "4  Euis      Sales  6000000.0                 1              Junior\n",
+            "\n",
+            "Rata-rata Gaji per Departemen:\n",
+            "Departemen\n",
+            "HR       7000000.0\n",
+            "IT       8250000.0\n",
+            "Sales    6750000.0\n",
+            "Name: Gaji, dtype: float64\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
